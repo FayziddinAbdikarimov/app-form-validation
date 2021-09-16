@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration page</title>
+    <link rel="stylesheet" th:href="@{/assets/css/bootstrap.min.css}">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 offset-4">
+            <h4>Student registration</h4>
+            <form th:action="@{/student/save}" th:object="${student}" method="post">
+                <label for="first_name">First name</label>
+                <input type="text" class="form-control" th:field="*{first_name}"  required id="first_name"
+                       name="first_name" placeholder="Enter first name">
+                <span th:if="${#fields.hasErrors('first_name')}" th:errors="*{first_name}"></span>
+                <label for="last_name">Last name</label>
+                <input type="text" class="form-control" required th:field="*{last_name}" id="last_name" name="last_name"
+                       placeholder="Enter last name">
+                <label for="username">Username</label>
+                <input type="text" class="form-control" th:field="*{username}" required id="username" name="username"
+                       placeholder="Enter username">
+                <span class="text-danger" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></span>
+                <br>
+                <label for="email">Email</label>
+                <input type="text" class="form-control" th:field="*{email}" required id="email" name="email"
+                       placeholder="Enter email">
+                <span class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+                <br>
+                <label for="phone">Phone</label>
+                <input type="text" class="form-control" required th:field="*{phone}" id="phone" name="phone"
+                       placeholder="Enter phone">
+                <span class="text-danger" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></span>
+                <br>
+                <label for="birthday">Birthday (dd-MM-yyyy)</label>
+                <input type="text" class="form-control" required th:field="*{birthday}" id="birthday" name="birthday"
+                       placeholder="Enter birthday">
+                <span class="text-danger" th:if="${#fields.hasErrors('birthday')}" th:errors="*{birthday}"></span>
+                <br>
+                <label for="age">Age</label>
+                <input type="number" class="form-control" required th:field="*{age}" id="age" name="age"
+                       placeholder="Enter age">
+                <span class="text-danger" th:if="${#fields.hasErrors('age')}" th:errors="*{age}"></span>
+                <br>
+                <button type="submit" class="btn btn-success">Register</button>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

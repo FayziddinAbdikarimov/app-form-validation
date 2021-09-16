@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home page</title>
+    <link rel="stylesheet" th:href="@{/assets/css/bootstrap.min.css}">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h4>Registered students list</h4>
+            <a href="#" th:href="@{/student/registration}"
+               class="btn btn-primary">Register student</a>
+            <table class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>First name</th>
+                    <th>Last name</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Birthday</th>
+                    <th>Age</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="aStudent : ${students}">
+                    <td th:text="${aStudent.id}"></td>
+                    <td th:text="${aStudent.first_name}"></td>
+                    <td th:text="${aStudent.last_name}"></td>
+                    <td th:text="${aStudent.username}"></td>
+                    <td th:text="${aStudent.email}"></td>
+                    <td th:text="${aStudent.phone}"></td>
+                    <td th:text="${aStudent.birthday}"></td>
+                    <td th:text="${aStudent.age}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>
